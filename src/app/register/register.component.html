@@ -1,0 +1,116 @@
+<div class="container mt-4" >
+  <div class="card">
+    <h2 class="text-center">Registration</h2>
+      
+  <form #userForm="ngForm" (ngSubmit)="save()">
+    <div class="form-group">
+      <label for="userFirstName">First Name</label>
+      <input type="text" [(ngModel)]="userFirstName" name="userFirstName" required class="form-control" id="userFirstName" placeholder="Enter First Name">
+      <div *ngIf="userForm.controls['userFirstName'].invalid && (userForm.controls['userFirstName'].dirty || userForm.controls['userFirstName'].touched)" class="text-danger">
+        <div *ngIf="userForm.controls['userFirstName'].hasError('required')">First Name is required</div>
+      </div>
+    </div>
+  
+  <div class="form-group">
+      <label for="userLastName">Last Name</label>
+      <input type="text" [(ngModel)]="userLastName" name="userLastName" required class="form-control" id="userLastName" placeholder="Enter Last Name">
+      <div *ngIf="userForm.controls['userLastName'].invalid && (userForm.controls['userLastName'].dirty || userForm.controls['userLastName'].touched)" class="text-danger">
+        <div *ngIf="userForm.controls['userLastName'].hasError('required')">Last Name is required</div>
+      </div>
+    </div>
+
+  <div class="form-group">
+  <label for="userAadhar">Aadhar Number</label>
+  <input type="text" [(ngModel)]="userAadhar" name="userAadhar" required minlength="12" maxlength="12" pattern="[0-9]*" class="form-control" id="userAadhar" placeholder="Enter Aadhar Number">
+  <div *ngIf="userForm.controls['userAadhar'].invalid && (userForm.controls['userAadhar'].dirty || userForm.controls['userAadhar'].touched)" class="text-danger">
+    <div *ngIf="userForm.controls['userAadhar'].hasError('required')">Aadhar Number is required</div>
+    <div *ngIf="userForm.controls['userAadhar'].hasError('minlength')">Aadhar Number must be 12 digits</div>
+    <div *ngIf="userForm.controls['userAadhar'].hasError('maxlength')">Aadhar Number must be 12 digits</div>
+    <div *ngIf="userForm.controls['userAadhar'].hasError('pattern')">Aadhar Number must contain only numbers</div>
+  </div>
+</div>
+
+
+<div class="form-group">
+  <label for="userAge">Age</label>
+  <input type="number" [(ngModel)]="userAge" name="userAge" required min="18" class="form-control" id="userAge" placeholder="Enter Age">
+  <div *ngIf="userForm.controls['userAge'].invalid && (userForm.controls['userAge'].dirty || userForm.controls['userAge'].touched)" class="text-danger">
+    <div *ngIf="userForm.controls['userAge'].hasError('required')">Age is required</div>
+    <div *ngIf="userForm.controls['userAge'].hasError('min')">Age should be 18 or greater</div>
+  </div>
+</div>
+
+<div class="form-group">
+  <label for="userCity"> City</label>
+  <input type="text" [(ngModel)]="userCity" name="userCity" required class="form-control" id="userCity" placeholder="Enter City">
+  <div *ngIf="userForm.controls['userCity'].invalid && (userForm.controls['userCity'].dirty || userForm.controls['userCity'].touched)" class="text-danger">
+    <div *ngIf="userForm.controls['userCity'].hasError('required')">City is required</div>
+  </div>
+</div>
+
+<div class="form-group">
+  <label for="userMobile">Mobile Number</label>
+  <input type="text" [(ngModel)]="userMobile" name="userMobile" required pattern="[0-9]{10}" class="form-control" id="userMobile" placeholder="Enter Mobile Number">
+  <div *ngIf="userForm.controls['userMobile'].invalid && (userForm.controls['userMobile'].dirty || userForm.controls['userMobile'].touched)" class="text-danger">
+    <div *ngIf="userForm.controls['userMobile'].hasError('required')">Mobile Number is required</div>
+    <div *ngIf="userForm.controls['userMobile'].hasError('pattern')">Mobile Number should contain 10 digits</div>
+  </div>
+</div>
+
+
+<div class="form-group">
+  <label for="userEmail">Email Id</label>
+  <input type="text" [(ngModel)]="userEmail" name="userEmail" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" class="form-control" id="userEmail" placeholder="Enter Email Id">
+  <div *ngIf="userForm.controls['userEmail'].invalid && (userForm.controls['userEmail'].dirty || userForm.controls['userEmail'].touched)" class="text-danger">
+    <div *ngIf="userForm.controls['userEmail'].hasError('required')">Email is required</div>
+    <div *ngIf="userForm.controls['userEmail'].hasError('pattern')">Enter a valid email address</div>
+  </div>
+</div>
+
+
+<div class="form-group">
+  <label for="userUserName">Username</label>
+  <input type="text" [(ngModel)]="userUserName" name="userUserName" required pattern="^[a-zA-Z0-9_]*$" class="form-control" id="userUserName" placeholder="Enter Username">
+  <div *ngIf="userForm.controls['userUserName'].invalid && (userForm.controls['userUserName'].dirty || userForm.controls['userUserName'].touched)" class="text-danger">
+    <div *ngIf="userForm.controls['userUserName'].hasError('required')">Username is required</div>
+    <div *ngIf="userForm.controls['userUserName'].hasError('pattern')">Enter a valid username (only letters, numbers, or underscores)</div>
+  </div>
+</div>
+
+<div class="form-group">
+  <label for="userPassword">Password</label>
+  <div class="input-group">
+    <input type="{{ hidePassword ? 'password' : 'text' }}" [(ngModel)]="userPassword" name="userPassword" required minlength="6" class="form-control" id="userPassword" placeholder="Enter Password">
+    <div class="input-group-append" (click)="togglePasswordVisibility()">
+      <span class="input-group-text">
+        <i class="fa" [ngClass]="hidePassword ? 'fa-eye' : 'fa-eye-slash'"></i>
+      </span>
+    </div>
+  </div>
+  <div *ngIf="userForm.controls['userPassword'].invalid && (userForm.controls['userPassword'].dirty || userForm.controls['userPassword'].touched)" class="text-danger">
+    <div *ngIf="userForm.controls['userPassword'].hasError('required')">Password is required</div>
+    <div *ngIf="userForm.controls['userPassword'].hasError('minlength')">Password should be at least 6 characters</div>
+  </div>
+</div>
+
+
+
+
+   <!-- <button type="text" class="btn btn-primary" (click)= "save()">Register</button>
+   <p class="mt-3">Already have an account? <a routerLink="/login">Login</a></p> -->
+
+
+  <!-- Registration button -->
+  <div class="text-center">
+    <button type="text" class="btn btn-primary" (click)="save()">Register</button>
+  </div>
+  <div class="text-center mt-3">
+    <p>Already have an account? <a routerLink="/login">Login</a></p>
+  </div>
+
+   
+
+</form>
+</div>
+
+</div>

@@ -1,0 +1,42 @@
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light custom-navbar">
+  <div class="container-fluid justify-content-between">
+      <div>
+          <a class="navbar-brand ml-auto" href="#">Assign Insurance Policy to User</a>
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <button class="btn btn-primary mr-2" (click)="navigateToUserHome()">Dashboard</button>
+              </li>
+          </ul>
+      </div>
+  </div>
+</nav><br>
+<div class="container mt-4">
+  <div class="row justify-content-center">
+      <div class="col-md-6">
+    <br>
+    <form (ngSubmit) ="onSubmit()" #f="ngForm">
+      <div class="form-group">
+        <label>Policy ID: </label>
+        <input type="number" class="form-control" id="policyId" [(ngModel)]= "policyId" name="policyId">
+      </div>
+      <br>
+      <div class="form-group">
+        <label>User ID: </label>
+        <input type="number" class="form-control" id="userId" [(ngModel)]= "userId" name="userId">
+      </div>
+      <br>
+
+      <button class="btn btn-success" type="submit">Submit</button>
+      &nbsp;
+      <button class="btn btn-success" type="button" (click)="onProceed()">Proceed</button>
+    </form>
+    {{ message }}
+  </div>
+

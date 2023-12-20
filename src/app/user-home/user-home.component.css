@@ -1,0 +1,69 @@
+Styling for Insurance Policies
+
+.navbar-item {
+  font-size: 20px; /* Change the font size as needed */
+  color: black; /* Text color */
+}
+
+.navbar-item:hover {
+  color: #333; /* Text color on hover */
+}
+
+.btn-lg {
+  font-size: 18px; /* Change the button font size as needed */
+}
+
+.text-center {
+    text-align: center;
+  }
+  
+  /* Optional: Add margin bottom to separate from the table */
+  .mb-4 {
+    margin-bottom: 1.5rem; /* You can adjust the value */
+  }
+
+  
+.table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  
+  .table-striped>tbody>tr:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  .table-striped>thead {
+    background-color: #343a40;
+    color: #fff;
+  }
+  
+  .table-striped th,
+  .table-striped td {
+    text-align: center;
+    vertical-align: middle;
+  }
+  
+  .table-striped th {
+    font-weight: 600;
+  }
+  
+  .table-striped th,
+  .table-striped td,
+  .table-striped button {
+    font-size: 14px;
+  }
+
+  
+  .custom-navbar {
+    height: 80px; /* Increase the height as needed */
+}
+
+.custom-navbar .navbar-brand {
+    font-weight: 500; /* Highlight text by making it bold */
+    font-size: 24px; /* Adjust the font size as needed */
+    color: #333; /* Text color */
+}
+
+.custom-navbar .navbar-brand:hover {
+    color: #555; /* Text color on hover */
+}
+

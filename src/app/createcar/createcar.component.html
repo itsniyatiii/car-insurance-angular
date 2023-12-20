@@ -1,0 +1,92 @@
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light custom-navbar">
+    <div class="container-fluid justify-content-between">
+        <div>
+            <a class="navbar-brand ml-auto" href="#">Create Car</a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <button class="btn btn-primary mr-2" (click)="navigateToUserHome()">Dashboard</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+  </nav>
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+<form (ngSubmit) = "onSubmit()"#carForm="ngForm" novalidate>
+    <div class="form-group">
+        <label>Vehicle Identificatin Number:</label>
+        <input type="text" class="form-control" id="vin"
+               [(ngModel)]="car.vin" name="vin" required>
+        <div *ngIf="carForm.controls['vin'].invalid && (carForm.controls['vin'].dirty || carForm.controls['vin'].touched)" class="alert alert-danger">
+            Vehicle Identificatin Number is required.
+        </div>
+    </div> <br>
+    
+    <div class="form-group">
+        <label>Car Make:</label>
+        <input type="text" class="form-control" id="car_make"
+               [(ngModel)]="car.car_make" name="car_make" required>
+        <div *ngIf="carForm.controls['car_make'].invalid && (carForm.controls['car_make'].dirty || carForm.controls['car_make'].touched)" class="alert alert-danger">
+            Car Make is required.
+        </div>
+    </div> <br>
+    
+    <div class="form-group">
+        <label>Car Model:</label>
+        <input type="text" class="form-control" id="car_model"
+               [(ngModel)]="car.car_model" name="car_model" required>
+        <div *ngIf="carForm.controls['car_model'].invalid && (carForm.controls['car_model'].dirty || carForm.controls['car_model'].touched)" class="alert alert-danger">
+            Car Model is required.
+        </div>
+    </div> <br>
+    
+    <div class="form-group">
+        <label>Manufacturing Year:</label>
+        <input type="text" class="form-control" id="car_manufacturing_year"
+               [(ngModel)]="car.car_manufacturing_year" name="car_manufacturing_year" required >
+        <div *ngIf="carForm.controls['car_manufacturing_year'].invalid && (carForm.controls['car_manufacturing_year'].dirty || carForm.controls['car_manufacturing_year'].touched)" class="alert alert-danger">
+            Please enter a valid Manufacturing Year.
+        </div>
+    </div> <br>
+    
+    <div class="form-group">
+        <label>Registration Number:</label>
+        <input type="text" class="form-control" id="car_registration_no"
+               [(ngModel)]="car.car_registration_no" name="car_registration_no" required pattern="[A-Za-z]{2}\d{2}[A-Za-z]{2}\d{4}">
+        <div *ngIf="carForm.controls['car_registration_no'].invalid && (carForm.controls['car_registration_no'].dirty || carForm.controls['car_registration_no'].touched)" class="alert alert-danger">
+            Please enter a valid Car Registration Number (e.g., AB12CD1234).
+        </div>
+    </div> <br>
+
+    <div class="form-group">
+        <label>Policy issued date:</label>
+        <input type="date" class="form-control" id="policy_issued_date"
+               [(ngModel)]="car.policy_issued_date" name="policy_issued_date" required >
+        <div *ngIf="carForm.controls['policy_issued_date'].invalid && (carForm.controls['policy_issued_date'].dirty || carForm.controls['policy_issued_date'].touched)" class="alert alert-danger">
+            Please enter policy issued date.
+        </div>
+    </div> <br>
+
+
+    <div class="form-group">
+        <label>Policy end date:</label>
+        <input type="date" class="form-control" id="policy_end_date"
+               [(ngModel)]="car.policy_end_date" name="policy_end_date" required>
+        <div *ngIf="carForm.controls['policy_end_date'].invalid && (carForm.controls['policy_end_date'].dirty || carForm.controls['policy_end_date'].touched)" class="alert alert-danger">
+            Please enter policy end date.
+        </div>
+    </div> <br>
+    
+        <button class="btn btn-success" type="submit">Submit</button>
+        <!-- &nbsp;
+        <button class="btn btn-success" type="proceed">Proceed</button> -->
+</form>
+</div>

@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light custom-navbar custom-navbar">
+    <div class="container-fluid justify-content-between">
+        <div>
+            <a class="navbar-brand ml-auto" href="#">Insurance Policy List</a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <button class="btn btn-primary mr-2" (click)="navigateToAdminHome()">Dashboard</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+  </nav>
+  <br><br>
+<table class="table table-striped">
+<thead>
+    <tr>
+        <!-- <th>Id:</th>      -->
+<th> Policy Id : </th>
+<th> Policy number : </th>
+<th> Policy type : </th>
+<th> Duration in months : </th>
+<th> Premium amount : </th>
+<th> Coverage amount : </th>
+<th> Deductible amount : </th>
+<th> Actions </th>
+</tr>
+</thead>
+<tbody>
+    <tr *ngFor="let insurancepolicy of  insurancepolicies">
+<td>{{insurancepolicy.policyId}}</td>
+<td>{{insurancepolicy.policy_no}}</td>
+<td>{{insurancepolicy.policy_type}}</td>
+<td>{{insurancepolicy.duration_in_months}}</td>
+<td>{{insurancepolicy.premium_amount}}</td>
+<td>{{insurancepolicy.coverage_amount}}</td>
+<td>{{insurancepolicy.deductible_amount}}</td>
+<td><button (click)="updateInsurancepolicy(insurancepolicy.policyId)" class="btn btn-info">
+    Update</button></td>
+ <td><button (click)="deleteInsurancepolicy(insurancepolicy.policyId)" class="btn btn-danger">
+    Delete</button></td>
+</tr>
+</tbody>
+</table>

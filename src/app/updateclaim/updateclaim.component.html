@@ -1,0 +1,72 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light custom-navbar">
+    <div class="container-fluid justify-content-between">
+        <div>
+            <a class="navbar-brand ml-auto" href="#">Update Claim</a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <button class="btn btn-primary mr-2" (click)="navigateToAdminHome()">Dashboard</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+  </nav>
+    
+  <br><br>
+  <div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+    <form (ngSubmit)="onSubmit()" #claimForm="ngForm" novalidate>
+
+        <div class="form-group">
+            <label for="vin">Vehicle identification number:</label>
+            <input type="text" class="form-control" id="vin"
+                [(ngModel)]="claim.vin" name="vin" required>
+            <div *ngIf="claimForm.controls['vin'].invalid && (claimForm.controls['vin'].dirty || claimForm.controls['vin'].touched)" class="alert alert-danger">
+                Vehicle identification number is required.
+            </div>
+        </div> <br>
+        
+        <div class="form-group">
+            <label for="claim_no">Claim Number:</label>
+            <input type="text" class="form-control" id="claim_no"
+                [(ngModel)]="claim.claim_no" name="claim_no" required>
+            <div *ngIf="claimForm.controls['claim_no'].invalid && (claimForm.controls['claim_no'].dirty || claimForm.controls['claim_no'].touched)" class="alert alert-danger">
+                Claim Number is required.
+            </div>
+        </div> <br>
+
+        <div class="form-group">
+            <label for="claim_amount">Claim Amount:</label>
+            <input type="number" class="form-control" id="claim_amount"
+                [(ngModel)]="claim.claim_amount" name="claim_amount" required>
+            <div *ngIf="claimForm.controls['claim_amount'].invalid && (claimForm.controls['claim_amount'].dirty || claimForm.controls['claim_amount'].touched)" class="alert alert-danger">
+                Claim Amount is required.
+            </div>
+        </div> <br>
+
+        
+        <label for="status">Status: </label>
+            <select class="form-control" id="status" required
+            [(ngModel)]="claim.status" name="status">
+            <option *ngFor ="let i of status" [value]="i">{{i}}</option>
+            </select><br>
+
+        <div class="form-group">
+            <label for="issued_date">Issued Date:</label>
+            <input type="date" class="form-control" id="issued_date"
+                [(ngModel)]="claim.issued_date" name="issued_date" required>
+            <div *ngIf="claimForm.controls['issued_date'].invalid && (claimForm.controls['issued_date'].dirty || claimForm.controls['issued_date'].touched)" class="alert alert-danger">
+                Issued Date is required.
+            </div>
+        </div> <br>
+
+        <button class="btn btn-success" type="submit">Submit</button>
+    </form>
+</div>

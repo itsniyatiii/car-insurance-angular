@@ -1,0 +1,32 @@
+.thank-you-message {
+    padding: 30px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .thank-you-message h2 {
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .thank-you-message p {
+    color: #555;
+    font-size: 18px;
+    margin-top: 10px;
+  }
+  
+
+  .custom-navbar {
+    height: 80px; /* Increase the height as needed */
+}
+
+.custom-navbar .navbar-brand {
+    font-weight: 500; /* Highlight text by making it bold */
+    font-size: 24px; /* Adjust the font size as needed */
+    color: #333; /* Text color */
+}
+
+.custom-navbar .navbar-brand:hover {
+    color: #555; /* Text color on hover */
+}

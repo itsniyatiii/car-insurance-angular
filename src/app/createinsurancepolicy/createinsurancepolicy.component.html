@@ -1,0 +1,76 @@
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light custom-navbar">
+  <div class="container-fluid justify-content-between">
+      <div>
+          <a class="navbar-brand ml-auto" href="#">Create Insurance Policy</a>
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <button class="btn btn-primary mr-2" (click)="navigateToAdminHome()">Dashboard</button>
+              </li>
+          </ul>
+      </div>
+  </div>
+</nav>
+  
+<br><br>
+<div class="container mt-4">
+  <div class="row justify-content-center">
+      <div class="col-md-6">
+<form (ngSubmit)="onSubmit()" #insuranceForm="ngForm" novalidate>
+    <div class="form-group">
+        <label>Policy Number:</label>
+        <input type="text" class="form-control" id="policy_no"
+               [(ngModel)]="insurancepolicy.policy_no" name="policy_no" required>
+        <div *ngIf="insuranceForm.controls['policy_no'].invalid && (insuranceForm.controls['policy_no'].dirty || insuranceForm.controls['policy_no'].touched)" class="alert alert-danger">
+            Policy Number is required.
+        </div>
+    </div> <br>
+
+        <label for="policy_type">Policy Type: </label>
+        <select class="form-control" id="policy_type" required
+        [(ngModel)]="insurancepolicy.policy_type" name="policy_type">
+        <option *ngFor ="let i of policy_type" [value]="i">{{i}}</option>
+        </select><br>
+
+    <label for="duration_in_months">Duration in months: </label>
+        <select class="form-control" id="duration_in_months" required
+        [(ngModel)]="insurancepolicy.duration_in_months" name="duration_in_months">
+        <option *ngFor ="let i of duration_in_months" [value]="i">{{i}}</option>
+        </select><br>
+
+    <div class="form-group">
+        <label>Premium Amount:</label>
+        <input type="number" class="form-control" id="premium_amount"
+               [(ngModel)]="insurancepolicy.premium_amount" name="premium_amount" required>
+        <div *ngIf="insuranceForm.controls['premium_amount'].invalid && (insuranceForm.controls['premium_amount'].dirty || insuranceForm.controls['premium_amount'].touched)" class="alert alert-danger">
+            Premium Amount is required.
+        </div>
+    </div> <br>
+
+    <div class="form-group">
+        <label>Coverage Amount:</label>
+        <input type="number" class="form-control" id="coverage_amount"
+               [(ngModel)]="insurancepolicy.coverage_amount" name="coverage_amount" required>
+        <div *ngIf="insuranceForm.controls['coverage_amount'].invalid && (insuranceForm.controls['coverage_amount'].dirty || insuranceForm.controls['coverage_amount'].touched)" class="alert alert-danger">
+            Coverage Amount is required.
+        </div>
+    </div> <br>
+
+    <div class="form-group">
+        <label>Deductible Amount:</label>
+        <input type="number" class="form-control" id="deductible_amount"
+               [(ngModel)]="insurancepolicy.deductible_amount" name="deductible_amount" required>
+        <div *ngIf="insuranceForm.controls['deductible_amount'].invalid && (insuranceForm.controls['deductible_amount'].dirty || insuranceForm.controls['deductible_amount'].touched)" class="alert alert-danger">
+            Deductible Amount is required.
+        </div>
+    </div> <br>
+
+        <button class="btn btn-success" type="submit">Submit</button>
+</form>
+</div>

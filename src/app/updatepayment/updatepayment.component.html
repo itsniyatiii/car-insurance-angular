@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light custom-navbar">
+    <div class="container-fluid justify-content-between">
+        <div>
+            <a class="navbar-brand ml-auto" href="#">Update Payment</a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <button class="btn btn-primary mr-2" (click)="navigateToAdminHome()">Dashboard</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+  </nav>
+    
+  <br><br>
+  <div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+    <form (ngSubmit)="onSubmit()" #paymentForm="ngForm" novalidate>
+        <div class="form-group">
+            <label for="payment_amount">Payment Amount:</label>
+            <input type="number" class="form-control" id="payment_amount"
+                   [(ngModel)]="payment.payment_amount" name="payment_amount" required>
+            <div *ngIf="paymentForm.controls['payment_amount'].invalid && (paymentForm.controls['payment_amount'].dirty || paymentForm.controls['payment_amount'].touched)" class="alert alert-danger">
+                Payment Amount is required.
+            </div>
+        </div> <br>
+
+        <div class="form-group">
+            <label for="payment_date">Payment Date:</label>
+            <input type="date" class="form-control" id="payment_date"
+                   [(ngModel)]="payment.payment_date" name="payment_date" required>
+            <div *ngIf="paymentForm.controls['payment_date'].invalid && (paymentForm.controls['payment_date'].dirty || paymentForm.controls['payment_date'].touched)" class="alert alert-danger">
+                Payment Date is required.
+            </div>
+        </div> <br>
+
+        <button class="btn btn-success" type="submit">Submit</button>
+    </form>
+</div>
